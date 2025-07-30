@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
-import { RefreshCw, Clock, CheckCircle, XCircle, AlertCircle, Activity, Database, Upload, Zap } from 'lucide-react';
+import { Activity, AlertCircle, CheckCircle, Clock, Database, RefreshCw, Upload, XCircle, Zap } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Bar, BarChart, CartesianGrid, Cell, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 const ActivityDashboard = () => {
   const [data, setData] = useState([]);

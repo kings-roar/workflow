@@ -1,15 +1,15 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import AutomationWorkflow from "./pages/AutomationWorkflow";
-import WorkflowDestination from "./pages/WorkflowDestination";
+import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Layout from "./Layout";
-import CredsCreation from "./pages/CreadsCreation";
 import ActivityDashboard from "./pages/ActivityDashboard";
+import AutomationWorkflow from "./pages/AutomationWorkflow";
+import CredsCreation from "./pages/CreadsCreation";
+import WorkflowDestination from "./pages/WorkflowDestination";
 
 function App() {
   return (
     <Router>
       <Routes>
-      <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/" element={<Navigate to="/dashboard" replace />} />
         <Route
           path="/dashboard"
           element={
@@ -18,7 +18,7 @@ function App() {
             </Layout>
           }
         />
-       
+
         <Route
           path="/creds"
           element={

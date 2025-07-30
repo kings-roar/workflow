@@ -2,9 +2,11 @@ import Sidebar from "./components/SideBar/SideBar";
 
 const Layout = ({ children }) => {
   return (
-    <div style={{ display: "flex" }}>
+    <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
-      <div style={{ marginLeft: "80px", width: "100%" }}>{children}</div>
+      <div className="flex-1 ml-52 p-6">
+        {children}
+      </div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import Header from "../components/Header/Header";
+import React, { useEffect, useState } from "react";
 import AddCreds from "../components/AddCreds/AddCreds";
 import CredsTable from "../components/AddCreds/CredsTable/CredsTable";
+import SkeletonLoader from "../components/SkeletonLoader/SkeletonLoader";
 
 const CredsCreation = () => {
   const [showSideBar, setShowSideBar] = useState(false);
@@ -45,25 +45,18 @@ const CredsCreation = () => {
       destination_table_name: "source table",
       createdAt: "22-july-2025 10:23:24",
       modifiedAt: "22-july-2025 10:23:24",
-    },
-    {
-      dag_name: "Galen Slixby",
-      schedule: "gslixby0@abc.net.au",
-      source_type: "Editor",
-      destination_type: "Enterprise",
-      source_table_name: "Inactive",
-      destination_table_name: "source table",
-      createdAt: "22-july-2025 10:23:24",
-      modifiedAt: "22-july-2025 10:23:24",
-    },
-    // more...
+    }
   ];
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <AddCreds showSideBar={showSideBar} handleClose={handleClose} handleToggle={handleOpen} />
-      {loading ? <p>Loading...</p> : <CredsTable data={creds} handleToggle={handleOpen} />}
+      {loading ? (
+        <SkeletonLoader rows={5} showHeader={true} showActions={true} />
+      ) : (
+        <CredsTable data={creds} handleToggle={handleOpen} />
+      )}
     </>
   );
 };

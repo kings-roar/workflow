@@ -1,9 +1,12 @@
-import React, { useState } from "react";
-import Header from "../components/Header/Header";
+import React, { useEffect, useState } from "react";
 import AddWorkflow from "../components/AddWorkflow/AddWorkflow";
 import AutomationTable from "../components/AutomationTable/AutomationTable";
+import SkeletonLoader from "../components/SkeletonLoader/SkeletonLoader";
+
 const AutomationWorkflow = () => {
   const [showSideBar, setShowSideBar] = useState(false);
+  const [workflows, setWorkflows] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const handleClose = () => {
     setShowSideBar(false);
@@ -13,155 +16,48 @@ const AutomationWorkflow = () => {
     setShowSideBar(!showSideBar);
   };
 
-  const userData = [
-    {
-      dag_name: "Galen Slixby",
-      schedule: "gslixby0@abc.net.au",
-      source_type: "Editor",
-      destination_type: "Enterprise",
-      source_table_name: "Inactive",
-      destination_table_name: "source table",
-      schedule_type: "test",
-      createdAt: "22-july-2025 10:23:24",
-      modifiedAt: "22-july-2025 10:23:24",
-    },
-    {
-      dag_name: "Galen Slixby",
-      schedule: "gslixby0@abc.net.au",
-      source_type: "Editor",
-      destination_type: "Enterprise",
-      source_table_name: "Inactive",
-      destination_table_name: "source table",
-      schedule_type: "test",
-      createdAt: "22-july-2025 10:23:24",
-      modifiedAt: "22-july-2025 10:23:24",
-    },
-    {
-      dag_name: "Galen Slixby",
-      schedule: "gslixby0@abc.net.au",
-      source_type: "Editor",
-      destination_type: "Enterprise",
-      source_table_name: "Inactive",
-      destination_table_name: "source table",
-      schedule_type: "test",
+  const fetchWorkflows = async () => {
+    try {
+      const response = await fetch("http://localhost:9459/workflows"); // replace with your server host
+      if (!response.ok) {
+        throw new Error("Failed to fetch workflows");
+      }
+      const data = await response.json();
+      setWorkflows(data); // assuming data is an array of workflows
+    } catch (error) {
+      console.error("Error fetching workflows:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-      createdAt: "22-july-2025 10:23:24",
-      modifiedAt: "22-july-2025 10:23:24",
-    },
-    {
-      dag_name: "Galen Slixby",
-      schedule: "gslixby0@abc.net.au",
-      source_type: "Editor",
-      destination_type: "Enterprise",
-      source_table_name: "Inactive",
-      destination_table_name: "source table",
-      schedule_type: "test",
+  useEffect(() => {
+    fetchWorkflows();
+  }, []);
 
-      createdAt: "22-july-2025 10:23:24",
-      modifiedAt: "22-july-2025 10:23:24",
-    },
-    {
-      dag_name: "Galen Slixby",
-      schedule: "gslixby0@abc.net.au",
-      source_type: "Editor",
-      destination_type: "Enterprise",
-      source_table_name: "Inactive",
-      destination_table_name: "source table",
-      schedule_type: "test",
+  // const userData = [
+  //   {
+  //     dag_name: "Galen Slixby",
+  //     schedule: "gslixby0@abc.net.au",
+  //     source_type: "Editor",
+  //     destination_type: "Enterprise",
+  //     source_table_name: "Inactive",
+  //     destination_table_name: "source table",
+  //     schedule_type: "test",
+  //     createdAt: "22-july-2025 10:23:24",
+  //     modifiedAt: "22-july-2025 10:23:24",
+  //   }
+  // ];
 
-      createdAt: "22-july-2025 10:23:24",
-      modifiedAt: "22-july-2025 10:23:24",
-    },
-    {
-      dag_name: "Galen Slixby",
-      schedule: "gslixby0@abc.net.au",
-      source_type: "Editor",
-      destination_type: "Enterprise",
-      source_table_name: "Inactive",
-      destination_table_name: "source table",
-      schedule_type: "test",
-
-      createdAt: "22-july-2025 10:23:24",
-      modifiedAt: "22-july-2025 10:23:24",
-    },
-    {
-      dag_name: "Galen Slixby",
-      schedule: "gslixby0@abc.net.au",
-      source_type: "Editor",
-      destination_type: "Enterprise",
-      source_table_name: "Inactive",
-      destination_table_name: "source table",
-      schedule_type: "test",
-
-      createdAt: "22-july-2025 10:23:24",
-      modifiedAt: "22-july-2025 10:23:24",
-    },
-    {
-      dag_name: "Galen Slixby",
-      schedule: "gslixby0@abc.net.au",
-      source_type: "Editor",
-      destination_type: "Enterprise",
-      source_table_name: "Inactive",
-      destination_table_name: "source table",
-      schedule_type: "test",
-
-      createdAt: "22-july-2025 10:23:24",
-      modifiedAt: "22-july-2025 10:23:24",
-    },
-    {
-      dag_name: "Galen Slixby",
-      schedule: "gslixby0@abc.net.au",
-      source_type: "Editor",
-      destination_type: "Enterprise",
-      source_table_name: "Inactive",
-      destination_table_name: "source table",
-      schedule_type: "test",
-
-      createdAt: "22-july-2025 10:23:24",
-      modifiedAt: "22-july-2025 10:23:24",
-    },
-    {
-      dag_name: "Galen Slixby",
-      schedule: "gslixby0@abc.net.au",
-      source_type: "Editor",
-      destination_type: "Enterprise",
-      source_table_name: "Inactive",
-      destination_table_name: "source table",
-      schedule_type: "test",
-
-      createdAt: "22-july-2025 10:23:24",
-      modifiedAt: "22-july-2025 10:23:24",
-    },
-    {
-      dag_name: "Galen Slixby",
-      schedule: "gslixby0@abc.net.au",
-      source_type: "Editor",
-      destination_type: "Enterprise",
-      source_table_name: "Inactive",
-      destination_table_name: "source table",
-      schedule_type: "test",
-
-      createdAt: "22-july-2025 10:23:24",
-      modifiedAt: "22-july-2025 10:23:24",
-    },
-    {
-      dag_name: "Galen Slixby",
-      schedule: "gslixby0@abc.net.au",
-      source_type: "Editor",
-      destination_type: "Enterprise",
-      source_table_name: "Inactive",
-      destination_table_name: "source table",
-      schedule_type: "test",
-      createdAt: "22-july-2025 10:23:24",
-      modifiedAt: "22-july-2025 10:23:24",
-    },
-    // more...
-  ];
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <AddWorkflow showSideBar={showSideBar} handleClose={handleClose} handleToggle={handleOpen} />
-      <AutomationTable data={userData} handleToggle={handleOpen} />
+      {loading ? (
+        <SkeletonLoader rows={5} showHeader={true} showActions={true} />
+      ) : (
+        <AutomationTable data={workflows} handleToggle={handleOpen} />
+      )}
     </>
   );
 };
