@@ -1,0 +1,28 @@
+.selectContainer {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin: 16px;
+  gap: 12px;
+  text-align: left;
+}
+
+.label {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.react-select__control {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 0.9rem;
+}
+
+.react-select__menu {
+  z-index: 100;
+}
+
+.react-select__placeholder {
+  color: #aaa;
+}
