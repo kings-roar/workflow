@@ -2,9 +2,9 @@ import TopBar from "./components/TopBar/TopBar";
 
 const Layout = ({ children }) => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-100">
       <TopBar />
-      <div className="pt-16 p-6">
+      <div className="pt-16">
         {children}
       </div>
     </div>
