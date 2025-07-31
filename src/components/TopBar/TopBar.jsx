@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 
 const TopBar = () => {
     return (
-        <div className="fixed top-0 left-0 right-0 h-16 bg-white border-b border-gray-200 flex items-center px-6 z-50">
+        <div className="fixed top-0 left-0 right-0 h-16 bg-white border-b border-gray-300 shadow-md flex items-center px-6 z-50">
             {/* Navigation centered */}
             <nav className="flex items-center space-x-6 mx-auto">
                 <NavLink

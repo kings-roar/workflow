@@ -18,7 +18,7 @@ const CredsCreation = () => {
 
   const fetchCreds = async () => {
     try {
-      const response = await fetch("http://localhost:9459/creds"); // replace with your server host
+      const response = await fetch("/autoflow/v1/creds"); // replace with your server host
       if (!response.ok) {
         throw new Error("Failed to fetch creds");
       }

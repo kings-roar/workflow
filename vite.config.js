@@ -12,10 +12,9 @@ export default defineConfig({
         changeOrigin: true,
         
       },
-      "/api-creds": {
-        target: "http://localhost:9459", // Backend server URL
+      "/autoflow/v1": {
+        target: "http://10.11.26.199:9459", // Backend server URL //  10.11.26.199:9459/autoflow/v1/api-creds
         changeOrigin: true,
-        
       },
     },
   },
