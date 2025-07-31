@@ -1,0 +1,268 @@
+{
+	"info": {
+		"_postman_id": "04b58b7a-ae2a-48b1-9157-c48ee93e9d64",
+		"name": "Autoflow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47225762",
+		"_collection_link": "https://developerssharekhan-6164622.postman.co/workspace/Developers-Sharekhan's-Workspac~782777e9-a854-42ae-82a5-ffdbe05e59e7/collection/47225762-04b58b7a-ae2a-48b1-9157-c48ee93e9d64?action=share&source=collection_link&creator=47225762"
+	},
+	"item": [
+		{
+			"name": "creds",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cred_name\": \"Test\",\r\n    \"cred_type\": \"db\",\r\n    \"cred_purpose\": \"source\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/autoflow/v1/creds",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"autoflow",
+						"v1",
+						"creds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "creds",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/autoflow/v1/creds",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"autoflow",
+						"v1",
+						"creds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "db-creds",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"cred_id\": 2,\r\n  \"db_type\": \"PostgreSQL\",\r\n  \"ip\": \"192.168.1.100\",\r\n  \"port\": 5432,\r\n  \"username\": \"db_user\",\r\n  \"password\": \"secure_password123\",\r\n  \"db_name\": \"production_db\",\r\n  \"table_name\": \"users\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/autoflow/v1/db-creds",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"autoflow",
+						"v1",
+						"db-creds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "db-creds",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/autoflow/v1/db-creds",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"autoflow",
+						"v1",
+						"db-creds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dags",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"parent_id\": null,\r\n    \"dag_name\": \"api_to_uat_risktiger_sync\",\r\n    \"schedule_cron\": \"15 7 * * *\",\r\n    \"source_creds_id\": 1,\r\n    \"destination_creds_id\": 2,\r\n    \"schedule_type\": \"testing\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/autoflow/v1/dags",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"autoflow",
+						"v1",
+						"dags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dags",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/autoflow/v1/dags",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"autoflow",
+						"v1",
+						"dags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-creds",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cred_id\": 1,\r\n    \"api_url\": \"testing url\",\r\n    \"api_username\": \"username\",\r\n    \"api_password\": \"password\",\r\n    \"file_type\":\"zip\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/autoflow/v1/api-creds",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"autoflow",
+						"v1",
+						"api-creds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-creds",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/autoflow/v1/api-creds",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"autoflow",
+						"v1",
+						"api-creds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-creds Copy",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "10.11.26.199:9459/autoflow/v1/api-creds",
+					"host": [
+						"10",
+						"11",
+						"26",
+						"199"
+					],
+					"port": "9459",
+					"path": [
+						"autoflow",
+						"v1",
+						"api-creds"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "localhost:9359",
+			"type": "default"
+		}
+	]
+}
