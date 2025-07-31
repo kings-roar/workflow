@@ -1,10 +1,10 @@
-import Sidebar from "./components/SideBar/SideBar";
+import TopBar from "./components/TopBar/TopBar";
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      <Sidebar />
-      <div className="flex-1 ml-52 p-6">
+    <div className="min-h-screen bg-gray-50">
+      <TopBar />
+      <div className="pt-16 p-6">
         {children}
       </div>
     </div>
