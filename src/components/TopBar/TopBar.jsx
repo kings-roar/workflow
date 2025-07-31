@@ -8,14 +8,9 @@ import { NavLink } from "react-router-dom";
 
 const TopBar = () => {
     return (
-        <div className="fixed top-0 left-0 right-0 h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 z-50">
-            {/* Logo/Brand on the left */}
-            <div className="flex items-center">
-                <h1 className="text-lg font-semibold text-gray-800">Workflow App</h1>
-            </div>
-
+        <div className="fixed top-0 left-0 right-0 h-16 bg-white border-b border-gray-200 flex items-center px-6 z-50">
             {/* Navigation centered */}
-            <nav className="flex items-center space-x-6">
+            <nav className="flex items-center space-x-6 mx-auto">
                 <NavLink
                     to="/dashboard"
                     className={({ isActive }) =>
