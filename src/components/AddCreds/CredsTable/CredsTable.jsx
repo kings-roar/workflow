@@ -44,7 +44,7 @@ const CredsTable = ({ data, handleToggle, onSearch }) => {
           </thead>
           <tbody className="bg-white divide-y divide-gray-100">
             {data.length > 0 ? (
-              data.map((w, idx) => (
+              data.sort((a, b) => new Date(b.modified_at) - new Date(a.modified_at)).map((w, idx) => (
                 <tr key={idx} className="hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-200 group">
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium text-gray-900 group-hover:text-blue-700 transition-colors duration-200">{w.cred_name}</div>
@@ -54,7 +54,7 @@ const CredsTable = ({ data, handleToggle, onSearch }) => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap uppercase text-center">
                     <span className={`inline-flex px-3 py-1 text-xs font-semibold rounded-full ${w.cred_purpose === 'destination' ? 'bg-pink-100 text-pink-800 ring-1 ring-pink-200' :
-                        'bg-green-100 text-green-800 ring-1 ring-green-200'
+                      'bg-green-100 text-green-800 ring-1 ring-green-200'
                       }`}>
                       {w.cred_purpose}
                     </span>
@@ -69,10 +69,28 @@ const CredsTable = ({ data, handleToggle, onSearch }) => {
                     <div className="text-sm text-gray-500">{w.api_password}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-center">
-                    <div className="text-sm text-gray-500">{w.created_at}</div>
+                    <div className="text-sm text-gray-500">
+                      {new Date(w.created_at).toLocaleString('en-GB', {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: false,
+                      })}
+                    </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-center">
-                    <div className="text-sm text-gray-500">{w.modified_at}</div>
+                    <div className="text-sm text-gray-500">
+                      {new Date(w.modified_at).toLocaleString('en-GB', {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: false,
+                      })}
+                    </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right">
                     <div className="flex justify-end items-center gap-2">

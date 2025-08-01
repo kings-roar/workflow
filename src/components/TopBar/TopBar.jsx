@@ -34,7 +34,7 @@ const TopBar = () => {
                     }
                 >
                     <HiOutlineKey className="text-xl" />
-                    <span className="text-sm font-medium">Credentials</span>
+                    <span className="text-sm font-medium">Task</span>
                 </NavLink>
 {/* 
                 <NavLink

@@ -11,7 +11,7 @@ const AddCreds = ({ showSideBar, handleClose, handleToggle, onCredCreated }) => 
     console.log("Form Submitted", data);
     try {
       const response = await createCreds(data);
-      if (response?.success) {
+      if (response && response.id) {
         console.log("Creds created successfully!");
         setFormKey(Date.now());
 
