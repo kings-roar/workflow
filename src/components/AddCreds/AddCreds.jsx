@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaKey, FaTimes } from "react-icons/fa";
 import { createCreds } from "../../services/services";
-import { credsFormConfig } from "../../utils/constants/globalConstant";
+import { getCredentialFormConfig } from "../../utils/constants/globalConstant";
 import CustomForm from "../CustomForm/CustomForm";
 
 const AddCreds = ({ showSideBar, handleClose, handleToggle }) => {
@@ -27,6 +27,12 @@ const AddCreds = ({ showSideBar, handleClose, handleToggle }) => {
     handleToggle();
   };
 
+  // Get the combined form configuration that includes both credential and API fields
+  const combinedFormConfig = [
+    ...getCredentialFormConfig("api"),
+    { label: "File Type", name: "file_type", type: "text", placeholder: "Enter file type", validation: { required: false } }
+  ];
+
   return (
     <>
       {showSideBar && (
@@ -44,8 +50,8 @@ const AddCreds = ({ showSideBar, handleClose, handleToggle }) => {
                 <FaKey className="text-lg" />
               </div>
               <div>
-                <h2 className="text-xl font-semibold">Add New Credentials</h2>
-                <p className="text-blue-100 text-sm">Configure your API credentials</p>
+                <h2 className="text-xl font-semibold">Add New Credentials & Destination</h2>
+                <p className="text-blue-100 text-sm">Configure your API credentials and destination settings</p>
               </div>
             </div>
             <button
@@ -61,7 +67,7 @@ const AddCreds = ({ showSideBar, handleClose, handleToggle }) => {
             <div className="p-6">
               <CustomForm
                 key={formKey}
-                config={credsFormConfig}
+                config={combinedFormConfig}
                 onSubmit={handleFormSubmit}
                 onCancel={handleFormCancel}
               />
