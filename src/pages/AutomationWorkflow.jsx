@@ -18,7 +18,7 @@ const AutomationWorkflow = () => {
 
   const fetchWorkflows = async () => {
     try {
-      const response = await fetch("http://localhost:9459/workflows"); // replace with your server host
+      const response = await fetch("/autoflow/v1/dags"); // replace with your server host
       if (!response.ok) {
         throw new Error("Failed to fetch workflows");
       }

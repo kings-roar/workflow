@@ -36,7 +36,7 @@ const TopBar = () => {
                     <HiOutlineKey className="text-xl" />
                     <span className="text-sm font-medium">Credentials</span>
                 </NavLink>
-
+{/* 
                 <NavLink
                     to="/source-destination"
                     className={({ isActive }) =>
@@ -48,7 +48,7 @@ const TopBar = () => {
                 >
                     <HiOutlineGlobeAlt className="text-xl" />
                     <span className="text-sm font-medium">Destinations</span>
-                </NavLink>
+                </NavLink> */}
 
                 <NavLink
                     to="/workflow"

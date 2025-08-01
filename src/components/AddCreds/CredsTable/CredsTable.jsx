@@ -3,7 +3,7 @@ import { FaEye, FaPlus, FaSearch, FaTrash } from "react-icons/fa";
 
 const CredsTable = ({ data, handleToggle, onSearch }) => {
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mx-4">
       {/* Header Section */}
       <div className="px-6 py-4 border-b border-gray-100 bg-gradient-to-r from-gray-50 to-white">
         <div className="flex justify-between items-center">
@@ -31,15 +31,15 @@ const CredsTable = ({ data, handleToggle, onSearch }) => {
         <table className="w-full">
           <thead>
             <tr className="bg-gradient-to-r from-gray-50 to-gray-100">
-              <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Cred Name</th>
-              <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Cred Type</th>
-              <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Cred Purpose</th>
+              <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Task Name</th>
+              <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Task Type</th>
+              <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Task Purpose</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Api Url</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Api Username</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Api Password</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Created At</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Modified At</th>
-              <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Action</th>
+              <th className="px-6 py-4 text-right text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Action</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-100">
@@ -47,47 +47,35 @@ const CredsTable = ({ data, handleToggle, onSearch }) => {
               data.map((w, idx) => (
                 <tr key={idx} className="hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-200 group">
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900 group-hover:text-blue-700 transition-colors duration-200">{w.dag_name}</div>
+                    <div className="text-sm font-medium text-gray-900 group-hover:text-blue-700 transition-colors duration-200">{w.cred_name}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-600">{w.schedule}</div>
+                    <div className="text-sm text-center text-gray-600 uppercase">{w.cred_type}</div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex px-3 py-1 text-xs font-semibold rounded-full ${w.role === 'editor' ? 'bg-cyan-100 text-cyan-800 ring-1 ring-cyan-200' :
-                      w.role === 'author' ? 'bg-pink-100 text-pink-800 ring-1 ring-pink-200' :
-                        w.role === 'maintainer' ? 'bg-orange-100 text-orange-800 ring-1 ring-orange-200' :
-                          'bg-green-100 text-green-800 ring-1 ring-green-200'
+                  <td className="px-6 py-4 whitespace-nowrap uppercase text-center">
+                    <span className={`inline-flex px-3 py-1 text-xs font-semibold rounded-full ${w.cred_purpose === 'destination' ? 'bg-pink-100 text-pink-800 ring-1 ring-pink-200' :
+                        'bg-green-100 text-green-800 ring-1 ring-green-200'
                       }`}>
-                      {w.source_type}
+                      {w.cred_purpose}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-600 max-w-xs truncate" title={w.destination_type}>{w.destination_type}</div>
+                  <td className="px-6 py-4 whitespace-nowrap text-center">
+                    <div className="text-sm text-gray-500">{w.api_url}</div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex px-3 py-1 text-xs font-semibold rounded-full ${w.status === 'active' ? 'bg-green-100 text-green-800 ring-1 ring-green-200' :
-                      w.status === 'pending' ? 'bg-yellow-100 text-yellow-800 ring-1 ring-yellow-200' :
-                        'bg-red-100 text-red-800 ring-1 ring-red-200'
-                      }`}>
-                      {w.source_table_name}
-                    </span>
+                  <td className="px-6 py-4 whitespace-nowrap text-center">
+                    <div className="text-sm text-gray-500">{w.api_username}</div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex px-3 py-1 text-xs font-semibold rounded-full ${w.status === 'active' ? 'bg-green-100 text-green-800 ring-1 ring-green-200' :
-                      w.status === 'pending' ? 'bg-yellow-100 text-yellow-800 ring-1 ring-yellow-200' :
-                        'bg-red-100 text-red-800 ring-1 ring-red-200'
-                      }`}>
-                      {w.destination_table_name}
-                    </span>
+                  <td className="px-6 py-4 whitespace-nowrap text-center">
+                    <div className="text-sm text-gray-500">{w.api_password}</div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-500">{w.createdAt}</div>
+                  <td className="px-6 py-4 whitespace-nowrap text-center">
+                    <div className="text-sm text-gray-500">{w.created_at}</div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-500">{w.modifiedAt}</div>
+                  <td className="px-6 py-4 whitespace-nowrap text-center">
+                    <div className="text-sm text-gray-500">{w.modified_at}</div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="flex items-center gap-2">
+                  <td className="px-6 py-4 whitespace-nowrap text-right">
+                    <div className="flex justify-end items-center gap-2">
                       <button
                         title="View"
                         className="p-2 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all duration-200 group/btn"
@@ -102,6 +90,7 @@ const CredsTable = ({ data, handleToggle, onSearch }) => {
                       </button>
                     </div>
                   </td>
+
                 </tr>
               ))
             ) : (

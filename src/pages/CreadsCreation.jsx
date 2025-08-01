@@ -18,7 +18,7 @@ const CredsCreation = () => {
 
   const fetchCreds = async () => {
     try {
-      const response = await fetch("/autoflow/v1/creds"); // replace with your server host
+      const response = await fetch("/autoflow/v1/api-creds"); // replace with your server host
       if (!response.ok) {
         throw new Error("Failed to fetch creds");
       }
@@ -34,19 +34,6 @@ const CredsCreation = () => {
   useEffect(() => {
     fetchCreds();
   }, []);
-
-  const userData = [
-    {
-      dag_name: "Galen Slixby",
-      schedule: "gslixby0@abc.net.au",
-      source_type: "Editor",
-      destination_type: "Enterprise",
-      source_table_name: "Inactive",
-      destination_table_name: "source table",
-      createdAt: "22-july-2025 10:23:24",
-      modifiedAt: "22-july-2025 10:23:24",
-    }
-  ];
 
   return (
     <>
