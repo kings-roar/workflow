@@ -7,6 +7,7 @@ const AutomationWorkflow = () => {
   const [showSideBar, setShowSideBar] = useState(false);
   const [workflows, setWorkflows] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleClose = () => {
     setShowSideBar(false);
@@ -18,12 +19,12 @@ const AutomationWorkflow = () => {
 
   const fetchWorkflows = async () => {
     try {
-      const response = await fetch("/autoflow/v1/dags"); // replace with your server host
+      const response = await fetch("/autoflow/v1/dags");
       if (!response.ok) {
         throw new Error("Failed to fetch workflows");
       }
       const data = await response.json();
-      setWorkflows(data); // assuming data is an array of workflows
+      setWorkflows(data);
     } catch (error) {
       console.error("Error fetching workflows:", error);
     } finally {
@@ -35,29 +36,27 @@ const AutomationWorkflow = () => {
     fetchWorkflows();
   }, []);
 
-  // const userData = [
-  //   {
-  //     dag_name: "Galen Slixby",
-  //     schedule: "gslixby0@abc.net.au",
-  //     source_type: "Editor",
-  //     destination_type: "Enterprise",
-  //     source_table_name: "Inactive",
-  //     destination_table_name: "source table",
-  //     schedule_type: "test",
-  //     createdAt: "22-july-2025 10:23:24",
-  //     modifiedAt: "22-july-2025 10:23:24",
-  //   }
-  // ];
+  // Filter workflows based on dag_name
+  const filteredWorkflows = workflows.filter((workflow) =>
+    workflow.dag_name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <>
-      {/* <Header /> */}
       <br />
-      <AddWorkflow showSideBar={showSideBar} handleClose={handleClose} handleToggle={handleOpen} />
+      <AddWorkflow
+        showSideBar={showSideBar}
+        handleClose={handleClose}
+        handleToggle={handleOpen}
+      />
       {loading ? (
         <SkeletonLoader rows={5} showHeader={true} showActions={true} />
       ) : (
-        <AutomationTable data={workflows} handleToggle={handleOpen} />
+        <AutomationTable
+          data={filteredWorkflows}
+          handleToggle={handleOpen}
+          onSearch={setSearchQuery}
+        />
       )}
     </>
   );

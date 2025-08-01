@@ -1,7 +1,7 @@
 import React from "react";
 import { FaEye, FaPlus, FaSearch, FaTrash } from "react-icons/fa";
 
-const UserTable = ({ data, handleToggle, onSearch }) => {
+const AutomationTable = ({ data, handleToggle, onSearch }) => {
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
       {/* Header Section */}
@@ -31,15 +31,15 @@ const UserTable = ({ data, handleToggle, onSearch }) => {
         <table className="w-full">
           <thead>
             <tr className="bg-gradient-to-r from-gray-50 to-gray-100">
-              <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Dag Name</th>
+              <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Dag Name</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Schedule Cron</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Source Creds</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Destination Creds</th>
-              <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Source Table</th>
+              {/* <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Source Table</th> */}
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Schedule Type</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Created At</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Modified At</th>
-              <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Action</th>
+              <th className="px-6 py-4 text-right text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Action</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-100">
@@ -49,51 +49,55 @@ const UserTable = ({ data, handleToggle, onSearch }) => {
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium text-gray-900 group-hover:text-blue-700 transition-colors duration-200">{w.dag_name}</div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-600">{w.schedule}</div>
+                  <td className="px-6 py-4 whitespace-nowrap text-center ">
+                    <div className="text-sm text-gray-600">{w.schedule_cron}</div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex px-3 py-1 text-xs font-semibold rounded-full ${w.role === 'editor' ? 'bg-green-100 text-green-800 ring-1 ring-green-200' :
-                      w.role === 'author' ? 'bg-yellow-100 text-yellow-800 ring-1 ring-yellow-200' :
-                        w.role === 'maintainer' ? 'bg-red-100 text-red-800 ring-1 ring-red-200' :
-                          'bg-gray-100 text-gray-800 ring-1 ring-gray-200'
-                      }`}>
-                      {w.source_type}
-                    </span>
+                  <td className="px-6 py-4 whitespace-nowrap text-center ">
+                    <div className="text-sm text-gray-600">{w.source_creds.cred_name}</div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-600 max-w-xs truncate" title={w.destination_type}>{w.destination_type}</div>
+
+
+                  <td className="px-6 py-4 whitespace-nowrap text-center ">
+                    <div className="text-sm text-gray-600">{w.destination_creds.cred_name}</div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex px-3 py-1 text-xs font-semibold rounded-full ${w.status === 'active' ? 'bg-green-100 text-green-800 ring-1 ring-green-200' :
-                      w.status === 'pending' ? 'bg-yellow-100 text-yellow-800 ring-1 ring-yellow-200' :
-                        'bg-red-100 text-red-800 ring-1 ring-red-200'
-                      }`}>
+                  {/* <td className="px-6 py-4 whitespace-nowrap">
+                    <span className="inline-flex px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800 ring-1 ring-gray-200">
                       {w.source_table_name}
                     </span>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex px-3 py-1 text-xs font-semibold rounded-full ${w.status === 'active' ? 'bg-green-100 text-green-800 ring-1 ring-green-200' :
-                      w.status === 'pending' ? 'bg-yellow-100 text-yellow-800 ring-1 ring-yellow-200' :
-                        'bg-red-100 text-red-800 ring-1 ring-red-200'
-                      }`}>
-                      {w.destination_table_name}
+                  </td> */}
+                  <td className="px-6 py-4 whitespace-nowrap text-center uppercase">
+                    <span className="inline-flex px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800 ring-1 ring-gray-200">
+                      {w.schedule_type}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-500">{w.createdAt}</div>
+                  <td className="px-6 py-4 whitespace-nowrap text-center">
+                    <div className="text-sm text-gray-500">
+                      {new Date(w.created_at).toLocaleString("en-GB", {
+                        timeZone: "UTC",
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })}
+                    </div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-500">{w.modifiedAt}</div>
+                  <td className="px-6 py-4 whitespace-nowrap text-center">
+                    <div className="text-sm text-gray-500">
+                      {new Date(w.modified_at).toLocaleString("en-GB", {
+                        timeZone: "UTC",
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })}
+                    </div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="flex items-center space-x-2">
-                      <button
-                        title="View"
-                        className="p-2 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all duration-200 group/btn"
-                      >
-                        <FaEye className="text-sm group-hover/btn:scale-110 transition-transform duration-200" />
-                      </button>
+                  <td className="px-6 py-4 whitespace-nowrap text-right">
+                    <div className="flex justify-end items-center space-x-2">
                       <button
                         title="Delete"
                         className="p-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all duration-200 group/btn"
@@ -102,6 +106,7 @@ const UserTable = ({ data, handleToggle, onSearch }) => {
                       </button>
                     </div>
                   </td>
+
                 </tr>
               ))
             ) : (
@@ -110,7 +115,7 @@ const UserTable = ({ data, handleToggle, onSearch }) => {
                   <div className="w-20 h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
                     <FaSearch className="text-gray-400 text-2xl" />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-700 mb-2">No workflows found</h3>
+                  <h3 className="text-lg font-semibold text-gray-700 mb-2">No Workflows Found</h3>
                   <p className="text-gray-500 text-sm">Create your first workflow to get started</p>
                 </td>
               </tr>
@@ -122,4 +127,4 @@ const UserTable = ({ data, handleToggle, onSearch }) => {
   );
 };
 
-export default UserTable;
+export default AutomationTable;

@@ -74,26 +74,28 @@ const CredsTable = ({ data, handleToggle, onSearch }) => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-center">
                       <div className="text-sm text-gray-500">
-                        {new Date(w.created_at).toLocaleString('en-GB', {
-                          day: '2-digit',
-                          month: 'short',
-                          year: 'numeric',
-                          hour: '2-digit',
-                          minute: '2-digit',
-                          hour12: false,
-                        })}
+                        {new Date(w.created_at).toLocaleString("en-GB", {
+                        timeZone: "UTC",
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-center">
                       <div className="text-sm text-gray-500">
-                        {new Date(w.modified_at).toLocaleString('en-GB', {
-                          day: '2-digit',
-                          month: 'short',
-                          year: 'numeric',
-                          hour: '2-digit',
-                          minute: '2-digit',
-                          hour12: false,
-                        })}
+                        {new Date(w.modified_at).toLocaleString("en-GB", {
+                        timeZone: "UTC",
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-center">
@@ -116,8 +118,12 @@ const CredsTable = ({ data, handleToggle, onSearch }) => {
                 ))
             ) : (
               <tr>
-                <td colSpan="9" className="px-6 py-4 text-center text-sm text-gray-500">
-                  No credentials found.
+                <td colSpan="9" className="px-6 py-16 text-center">
+                  <div className="w-20 h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <FaSearch className="text-gray-400 text-2xl" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-700 mb-2">No Task found</h3>
+                  <p className="text-gray-500 text-sm">Create your first task to get started</p>
                 </td>
               </tr>
             )}
