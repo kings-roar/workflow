@@ -59,6 +59,7 @@ const AutomationWorkflow = () => {
           onSearch={setSearchQuery}
         />
       )}
+         <br />
     </>
   );
 };

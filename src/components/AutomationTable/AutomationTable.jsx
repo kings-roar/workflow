@@ -2,8 +2,11 @@ import React from "react";
 import { FaEye, FaPlus, FaSearch, FaTrash } from "react-icons/fa";
 
 const AutomationTable = ({ data, handleToggle, onSearch }) => {
+  // Sort data by modified_at in descending order
+  const sortedData = [...data].sort((a, b) => new Date(b.modified_at) - new Date(a.modified_at));
+
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mx-4">
       {/* Header Section */}
       <div className="px-6 py-4 border-b border-gray-100 bg-gradient-to-r from-gray-50 to-white">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
@@ -35,7 +38,6 @@ const AutomationTable = ({ data, handleToggle, onSearch }) => {
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Schedule Cron</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Source Creds</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Destination Creds</th>
-              {/* <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Source Table</th> */}
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Schedule Type</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Created At</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Modified At</th>
@@ -43,28 +45,21 @@ const AutomationTable = ({ data, handleToggle, onSearch }) => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-100">
-            {data.length > 0 ? (
-              data.map((w, idx) => (
+            {sortedData.length > 0 ? (
+              sortedData.map((w, idx) => (
                 <tr key={idx} className="hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-200 group">
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium text-gray-900 group-hover:text-blue-700 transition-colors duration-200">{w.dag_name}</div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-center ">
+                  <td className="px-6 py-4 whitespace-nowrap text-center">
                     <div className="text-sm text-gray-600">{w.schedule_cron}</div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-center ">
+                  <td className="px-6 py-4 whitespace-nowrap text-center">
                     <div className="text-sm text-gray-600">{w.source_creds.cred_name}</div>
                   </td>
-
-
-                  <td className="px-6 py-4 whitespace-nowrap text-center ">
+                  <td className="px-6 py-4 whitespace-nowrap text-center">
                     <div className="text-sm text-gray-600">{w.destination_creds.cred_name}</div>
                   </td>
-                  {/* <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="inline-flex px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800 ring-1 ring-gray-200">
-                      {w.source_table_name}
-                    </span>
-                  </td> */}
                   <td className="px-6 py-4 whitespace-nowrap text-center uppercase">
                     <span className="inline-flex px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800 ring-1 ring-gray-200">
                       {w.schedule_type}
@@ -106,7 +101,6 @@ const AutomationTable = ({ data, handleToggle, onSearch }) => {
                       </button>
                     </div>
                   </td>
-
                 </tr>
               ))
             ) : (
