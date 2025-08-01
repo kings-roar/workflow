@@ -37,7 +37,7 @@ export const createSourceDest = async (data) => {
 
 export const createDag = async (data) => {
     try {
-        const response = await fetch('http://localhost:9459/creds', {
+        const response = await fetch('/autoflow/v1/dags', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -47,7 +47,10 @@ export const createDag = async (data) => {
 
         const result = await response.json();
         console.log('Server response:', result);
+        return result;
+       
     } catch (error) {
         console.error('Error sending creds:', error);
+        return null;
     }
 };

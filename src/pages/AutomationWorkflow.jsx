@@ -48,6 +48,7 @@ const AutomationWorkflow = () => {
         showSideBar={showSideBar}
         handleClose={handleClose}
         handleToggle={handleOpen}
+        onCredCreated={fetchWorkflows}
       />
       {loading ? (
         <SkeletonLoader rows={5} showHeader={true} showActions={true} />
