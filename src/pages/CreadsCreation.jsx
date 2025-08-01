@@ -39,7 +39,7 @@ const CredsCreation = () => {
     <>
       {/* <Header /> */}
       <br />
-      <AddCreds showSideBar={showSideBar} handleClose={handleClose} handleToggle={handleOpen} />
+      <AddCreds showSideBar={showSideBar} handleClose={handleClose} handleToggle={handleOpen} onCredCreated={fetchCreds} />
       {loading ? (
         <SkeletonLoader rows={5} showHeader={true} showActions={true} />
       ) : (

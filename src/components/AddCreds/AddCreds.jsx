@@ -4,7 +4,7 @@ import { createCreds } from "../../services/services";
 import { getCredentialFormConfig } from "../../utils/constants/globalConstant";
 import CustomForm from "../CustomForm/CustomForm";
 
-const AddCreds = ({ showSideBar, handleClose, handleToggle }) => {
+const AddCreds = ({ showSideBar, handleClose, handleToggle, onCredCreated }) => {
   const [formKey, setFormKey] = useState(Date.now());
 
   const handleFormSubmit = async (data) => {
@@ -14,6 +14,14 @@ const AddCreds = ({ showSideBar, handleClose, handleToggle }) => {
       if (response?.success) {
         console.log("Creds created successfully!");
         setFormKey(Date.now());
+
+        // Close the sidebar
+        handleToggle();
+
+        // Refresh the credentials table
+        if (onCredCreated) {
+          onCredCreated();
+        }
       } else {
         console.error("API call did not return success.");
       }
