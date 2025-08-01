@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import { FaEye, FaPlus, FaSearch, FaTrash } from "react-icons/fa";
 
@@ -44,81 +46,78 @@ const CredsTable = ({ data, handleToggle, onSearch }) => {
           </thead>
           <tbody className="bg-white divide-y divide-gray-100">
             {data.length > 0 ? (
-              data.sort((a, b) => new Date(b.modified_at) - new Date(a.modified_at)).map((w, idx) => (
-                <tr key={idx} className="hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-200 group">
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900 group-hover:text-blue-700 transition-colors duration-200">{w.cred_name}</div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-center text-gray-600 uppercase">{w.cred_type}</div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap uppercase text-center">
-                    <span className={`inline-flex px-3 py-1 text-xs font-semibold rounded-full ${w.cred_purpose === 'destination' ? 'bg-pink-100 text-pink-800 ring-1 ring-pink-200' :
-                      'bg-green-100 text-green-800 ring-1 ring-green-200'
-                      }`}>
-                      {w.cred_purpose}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-center">
-                    <div className="text-sm text-gray-500">{w.api_url}</div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-center">
-                    <div className="text-sm text-gray-500">{w.api_username}</div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-center">
-                    <div className="text-sm text-gray-500">{w.api_password}</div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-center">
-                    <div className="text-sm text-gray-500">
-                      {new Date(w.created_at).toLocaleString('en-GB', {
-                        day: '2-digit',
-                        month: 'short',
-                        year: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        hour12: false,
-                      })}
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-center">
-                    <div className="text-sm text-gray-500">
-                      {new Date(w.modified_at).toLocaleString('en-GB', {
-                        day: '2-digit',
-                        month: 'short',
-                        year: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        hour12: false,
-                      })}
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-right">
-                    <div className="flex justify-end items-center gap-2">
-                      <button
-                        title="View"
-                        className="p-2 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all duration-200 group/btn"
-                      >
-                        <FaEye className="text-sm group-hover/btn:scale-110 transition-transform duration-200" />
-                      </button>
-                      <button
-                        title="Delete"
-                        className="p-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all duration-200 group/btn"
-                      >
-                        <FaTrash className="text-sm group-hover/btn:scale-110 transition-transform duration-200" />
-                      </button>
-                    </div>
-                  </td>
-
-                </tr>
-              ))
+              [...data]
+                .sort((a, b) => new Date(b.modified_at) - new Date(a.modified_at))
+                .map((w, idx) => (
+                  <tr key={idx} className="hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-200 group">
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="text-sm font-medium text-gray-900 group-hover:text-blue-700 transition-colors duration-200">{w.cred_name}</div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="text-sm text-center text-gray-600 uppercase">{w.cred_type}</div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap uppercase text-center">
+                      <span className={`inline-flex px-3 py-1 text-xs font-semibold rounded-full ${w.cred_purpose === 'destination' ? 'bg-pink-100 text-pink-800 ring-1 ring-pink-200' :
+                        'bg-green-100 text-green-800 ring-1 ring-green-200'
+                        }`}>
+                        {w.cred_purpose}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-center">
+                      <div className="text-sm text-gray-500">{w.api_url}</div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-center">
+                      <div className="text-sm text-gray-500">{w.api_username}</div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-center">
+                      <div className="text-sm text-gray-500">{w.api_password}</div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-center">
+                      <div className="text-sm text-gray-500">
+                        {new Date(w.created_at).toLocaleString('en-GB', {
+                          day: '2-digit',
+                          month: 'short',
+                          year: 'numeric',
+                          hour: '2-digit',
+                          minute: '2-digit',
+                          hour12: false,
+                        })}
+                      </div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-center">
+                      <div className="text-sm text-gray-500">
+                        {new Date(w.modified_at).toLocaleString('en-GB', {
+                          day: '2-digit',
+                          month: 'short',
+                          year: 'numeric',
+                          hour: '2-digit',
+                          minute: '2-digit',
+                          hour12: false,
+                        })}
+                      </div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-center">
+                      <div className="flex justify-end items-center gap-2">
+                        {/* <button
+                          title="View"
+                          className="p-2 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all duration-200 group/btn"
+                        >
+                          <FaEye className="text-sm group-hover/btn:scale-110 transition-transform duration-200" />
+                        </button> */}
+                        <button
+                          title="Delete"
+                          className="p-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all duration-200 group/btn"
+                        >
+                          <FaTrash className="text-sm group-hover/btn:scale-110 transition-transform duration-200" />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
             ) : (
               <tr>
-                <td colSpan="9" className="px-6 py-16 text-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <FaSearch className="text-gray-400 text-2xl" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-700 mb-2">No credentials found</h3>
-                  <p className="text-gray-500 text-sm">Create your first credential to get started</p>
+                <td colSpan="9" className="px-6 py-4 text-center text-sm text-gray-500">
+                  No credentials found.
                 </td>
               </tr>
             )}

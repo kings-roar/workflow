@@ -6,7 +6,9 @@ import SkeletonLoader from "../components/SkeletonLoader/SkeletonLoader";
 const CredsCreation = () => {
   const [showSideBar, setShowSideBar] = useState(false);
   const [creds, setCreds] = useState([]);
+  const [filteredCreds, setFilteredCreds] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleClose = () => {
     setShowSideBar(false);
@@ -18,12 +20,13 @@ const CredsCreation = () => {
 
   const fetchCreds = async () => {
     try {
-      const response = await fetch("/autoflow/v1/api-creds"); // replace with your server host
+      const response = await fetch("/autoflow/v1/api-creds");
       if (!response.ok) {
         throw new Error("Failed to fetch creds");
       }
       const data = await response.json();
-      setCreds(data); // assuming data is an array of creds
+      setCreds(data);
+      setFilteredCreds(data);
     } catch (error) {
       console.error("Error fetching creds:", error);
     } finally {
@@ -35,16 +38,36 @@ const CredsCreation = () => {
     fetchCreds();
   }, []);
 
+  useEffect(() => {
+    const filtered = creds.filter((item) =>
+      item.cred_name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredCreds(filtered);
+  }, [searchTerm, creds]);
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
+
   return (
     <>
-      {/* <Header /> */}
       <br />
-      <AddCreds showSideBar={showSideBar} handleClose={handleClose} handleToggle={handleOpen} onCredCreated={fetchCreds} />
+      <AddCreds
+        showSideBar={showSideBar}
+        handleClose={handleClose}
+        handleToggle={handleOpen}
+        onCredCreated={fetchCreds}
+      />
       {loading ? (
         <SkeletonLoader rows={5} showHeader={true} showActions={true} />
       ) : (
-        <CredsTable data={creds} handleToggle={handleOpen} />
+        <CredsTable
+          data={filteredCreds}
+          handleToggle={handleOpen}
+          onSearch={handleSearch}
+        />
       )}
+        <br />
     </>
   );
 };
