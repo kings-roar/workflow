@@ -115,7 +115,7 @@ const TopBar = () => {
                 )}
                 <button
                     onClick={handleLogoutClick}
-                    className="flex items-center gap-2 px-3 py-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all duration-200"
+                    className="flex items-center gap-2 px-3 py-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all duration-300 hover:scale-105"
                 >
                     <HiOutlineArrowRightOnRectangle className="h-4 w-4" />
                     <span className="text-sm font-medium">Logout</span>
