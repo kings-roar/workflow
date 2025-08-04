@@ -3,6 +3,7 @@ import Layout from "./Layout";
 import Login from "./components/Login/Login";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import ActivityDashboard from "./pages/ActivityDashboard";
+import Alerts from "./pages/Alerts";
 import AutomationWorkflow from "./pages/AutomationWorkflow";
 import CredsCreation from "./pages/CreadsCreation";
 
@@ -44,6 +45,17 @@ function App() {
             <ProtectedRoute requiredRole="admin">
               <Layout>
                 <AutomationWorkflow />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/alerts"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <Alerts />
               </Layout>
             </ProtectedRoute>
           }

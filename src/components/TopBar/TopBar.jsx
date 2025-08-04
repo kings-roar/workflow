@@ -2,10 +2,10 @@ import { useState } from "react";
 import { FaCogs } from "react-icons/fa";
 import {
     HiOutlineArrowRightOnRectangle,
+    HiOutlineBars3,
+    HiOutlineBell,
     HiOutlineChartBar,
     HiOutlineKey,
-    HiOutlineUser,
-    HiOutlineBars3,
     HiOutlineXMark
 } from "react-icons/hi2";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -115,15 +115,19 @@ const TopBar = () => {
                 </nav>
             </div>
 
-            {/* Right side - User Info, Logout, and Mobile Menu Button */}
+            {/* Right side - Alert Button, Logout, and Mobile Menu Button */}
             <div className="flex items-center space-x-2 sm:space-x-4">
-                {/* User Info - Hidden on mobile */}
-                {user && (
-                    <div className="hidden sm:flex items-center space-x-2 text-sm text-gray-600">
-                        <HiOutlineUser className="h-4 w-4" />
-                        <span className="font-medium truncate max-w-24 xl:max-w-none">{user.name || user.loginId}</span>
+                {/* Alert Button */}
+                <NavLink
+                    to="/alerts"
+                    className="hidden sm:flex items-center gap-2 px-3 py-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all duration-300 hover:scale-105 border border-red-200 hover:border-red-300"
+                >
+                    <div className="relative">
+                        <HiOutlineBell className="h-4 w-4" />
+                        <div className="absolute -top-1 -right-1 h-2 w-2 bg-red-500 rounded-full"></div>
                     </div>
-                )}
+                    <span className="text-sm font-medium">Alerts</span>
+                </NavLink>
 
                 {/* Desktop Logout Button */}
                 <button
@@ -155,14 +159,6 @@ const TopBar = () => {
             {/* Mobile Menu */}
             <div className={`lg:hidden fixed top-16 left-0 right-0 bg-white border-b border-gray-300 shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
                 <div className="px-4 py-4 space-y-3">
-                    {/* User Info in Mobile Menu */}
-                    {user && (
-                        <div className="flex items-center space-x-2 text-sm text-gray-600 pb-3 border-b border-gray-200">
-                            <HiOutlineUser className="h-4 w-4" />
-                            <span className="font-medium">{user.name || user.loginId}</span>
-                        </div>
-                    )}
-
                     {/* Mobile Navigation */}
                     <nav className="space-y-2">
                         <NavLink
@@ -212,6 +208,24 @@ const TopBar = () => {
                                 <span className="text-sm font-medium">Workflows</span>
                             </NavLink>
                         )}
+
+                        {/* Mobile Alert Button */}
+                        <NavLink
+                            to="/alerts"
+                            onClick={closeMobileMenu}
+                            className={({ isActive }) =>
+                                `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${isActive
+                                    ? 'bg-red-600 text-white shadow-sm'
+                                    : 'text-red-600 hover:text-red-700 hover:bg-red-50 border border-red-200'
+                                }`
+                            }
+                        >
+                            <div className="relative">
+                                <HiOutlineBell className="text-xl" />
+                                <div className="absolute -top-1 -right-1 h-2 w-2 bg-red-500 rounded-full"></div>
+                            </div>
+                            <span className="text-sm font-medium">Alerts</span>
+                        </NavLink>
 
                         {/* Mobile Logout Button */}
                         <button
