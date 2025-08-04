@@ -196,3 +196,233 @@ src/
 ```
 
 This login system provides a solid foundation for your AutoFlow application with beautiful UI, secure authentication, and flexible role-based access control. 
+
+
+
+
+## RESPONSE OF DASHBOARD API
+
+[
+  {
+    "Activity_No": 1,
+    "Activity_Name": "Loading Ledger  from BO",
+    "Remarks": "Record Size : 3159606",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 4, 2025, 3:14:48 PM",
+    "Activity_EndTime": "Aug 4, 2025, 3:15:54 PM"
+  },
+  {
+    "Activity_No": 2,
+    "Activity_Name": "Loading Cp Code and Segment activation",
+    "Remarks": "Segement Active Record Size : 3429941, cp_code Record Size : 650",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 4, 2025, 3:15:55 PM",
+    "Activity_EndTime": "Aug 4, 2025, 3:16:58 PM"
+  },
+  {
+    "Activity_No": 3,
+    "Activity_Name": "Loading margin & haircut master from BO",
+    "Remarks": "NSE Exchange Margin Record Size : 0, CCHaircut Record Size : 0",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 4, 2025, 3:17:00 PM",
+    "Activity_EndTime": "Aug 4, 2025, 3:17:01 PM"
+  },
+  {
+    "Activity_No": 4,
+    "Activity_Name": "Upload NF Span File",
+    "Remarks": "Record Size : 243|243|225, File Name : file",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 4, 2025, 3:14:55 PM",
+    "Activity_EndTime": "Aug 4, 2025, 3:16:37 PM"
+  },
+  {
+    "Activity_No": 5,
+    "Activity_Name": "Upload BF Span File",
+    "Remarks": "Record Size : 225|225|225, File Name : file",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 4, 2025, 3:16:46 PM",
+    "Activity_EndTime": "Aug 4, 2025, 3:18:29 PM"
+  },
+  {
+    "Activity_No": 6,
+    "Activity_Name": "Upload RN Span File",
+    "Remarks": "Record Size : 8|8|7, File Name : file",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 4, 2025, 3:18:35 PM",
+    "Activity_EndTime": "Aug 4, 2025, 3:18:36 PM"
+  },
+  {
+    "Activity_No": 7,
+    "Activity_Name": "Upload NF GE Margin",
+    "Remarks": "Record Size : 34763, File Name : NA",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 4, 2025, 3:18:39 PM",
+    "Activity_EndTime": "Aug 4, 2025, 3:18:39 PM"
+  },
+  {
+    "Activity_No": 8,
+    "Activity_Name": "Upload BF GE Margin",
+    "Remarks": "Record Size : 34763, File Name : NA",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 4, 2025, 3:18:43 PM",
+    "Activity_EndTime": "Aug 4, 2025, 3:18:43 PM"
+  },
+  {
+    "Activity_No": 9,
+    "Activity_Name": "Upload RN GE Margin",
+    "Remarks": "Record Size : 34763, File Name : NA",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 4, 2025, 3:18:41 PM",
+    "Activity_EndTime": "Aug 4, 2025, 3:18:41 PM"
+  },
+  {
+    "Activity_No": 10,
+    "Activity_Name": "NF GE Exposure Margin",
+    "Remarks": "Record Size : 138, File Name : NA",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 4, 2025, 3:18:46 PM",
+    "Activity_EndTime": "Aug 4, 2025, 3:18:46 PM"
+  },
+  {
+    "Activity_No": 11,
+    "Activity_Name": "BF GE Exposure Margin",
+    "Remarks": "Record Size : 2216, File Name : NA",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 4, 2025, 3:18:48 PM",
+    "Activity_EndTime": "Aug 4, 2025, 3:18:48 PM"
+  },
+  {
+    "Activity_No": 12,
+    "Activity_Name": "RN GE Exposure Margin",
+    "Remarks": "Record Size : 14990, File Name : NA",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 4, 2025, 3:18:50 PM",
+    "Activity_EndTime": "Aug 4, 2025, 3:18:50 PM"
+  },
+  {
+    "Activity_No": 13,
+    "Activity_Name": "FO Exposure Limit file",
+    "Remarks": "Record Size : , File Name : ael_01082025.csv",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 1, 2025, 9:05:36 AM",
+    "Activity_EndTime": "Aug 1, 2025, 9:05:36 AM"
+  },
+  {
+    "Activity_No": 14,
+    "Activity_Name": "Loading BO Ledger from Invest DB",
+    "Remarks": "Record Size : 139, File Name : C_CC02_10733_01082025.CSV",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 1, 2025, 9:05:12 AM",
+    "Activity_EndTime": "Aug 1, 2025, 9:05:12 AM"
+  },
+  {
+    "Activity_No": 15,
+    "Activity_Name": "Upload CM CCO2 file",
+    "Remarks": "Record Size : 139, File Name : F_CC02_10733_01082025.CSV",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 1, 2025, 9:05:17 AM",
+    "Activity_EndTime": "Aug 1, 2025, 9:05:17 AM"
+  },
+  {
+    "Activity_No": 16,
+    "Activity_Name": "Upload FO CCO2 file",
+    "Remarks": "Record Size : 139, File Name : X_CC02_10733_01082025.CSV",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 1, 2025, 9:05:23 AM",
+    "Activity_EndTime": "Aug 1, 2025, 9:05:23 AM"
+  },
+  {
+    "Activity_No": 17,
+    "Activity_Name": "Upload CD CCO2 file",
+    "Remarks": "Record Size : 1354, File Name : X_CC02_10733_01022024.CSV",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Jul 12, 2025, 12:09:01 PM",
+    "Activity_EndTime": "Jul 12, 2025, 12:09:45 PM"
+  },
+  {
+    "Activity_No": 18,
+    "Activity_Name": "Load previous day NF position",
+    "Remarks": "Record Size : 53329, File Name : NA",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Jul 12, 2025, 12:09:01 PM",
+    "Activity_EndTime": "Jul 12, 2025, 12:09:45 PM"
+  },
+  {
+    "Activity_No": 19,
+    "Activity_Name": "Load previous day BF position",
+    "Activity_StartTime": "Jul 12, 2025, 12:09:01 PM",
+    "Activity_EndTime": "Jul 12, 2025, 12:09:45 PM"
+  },
+  {
+    "Activity_No": 20,
+    "Activity_Name": "Load previous day RN position",
+    "Remarks": "Record Size : 3, File Name : NA",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Jul 12, 2025, 12:09:01 PM",
+    "Activity_EndTime": "Jul 12, 2025, 12:09:45 PM"
+  },
+  {
+    "Activity_No": 21,
+    "Activity_Name": "Start Kafak Listener - sk.orderAck.inv",
+    "Remarks": "Record Size : 0, File Name : NA. Kafka Flag false offset : 0",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 1, 2025, 9:05:29 AM",
+    "Activity_EndTime": "Aug 1, 2025, 9:05:29 AM"
+  },
+  {
+    "Activity_No": 22,
+    "Activity_Name": "Start Kafak Listener - sk.funds.all",
+    "Remarks": "Record Size : 0, File Name : NA. Kafka Flagfalse",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Jan 25, 2024, 7:21:27 PM",
+    "Activity_EndTime": "Jan 25, 2024, 7:21:27 PM"
+  },
+  {
+    "Activity_No": 23,
+    "Activity_Name": "Start Kafak Listener - sk.funds.inv",
+    "Remarks": "Record Size : 0, File Name : NA. Kafka Flagfalse",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Jan 25, 2024, 7:20:37 PM",
+    "Activity_EndTime": "Jan 25, 2024, 7:20:37 PM"
+  },
+  {
+    "Activity_No": 24,
+    "Activity_Name": "Start Kafak Listener - sk.orderAck.all",
+    "Remarks": "Record Size : 0, File Name : NA. Kafka Flagfalse",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Jan 25, 2024, 7:21:45 PM",
+    "Activity_EndTime": "Jan 25, 2024, 7:21:45 PM"
+  },
+  {
+    "Activity_No": 25,
+    "Activity_Name": "Start Kafak Listener - sk.tradeFiles.all",
+    "Remarks": "Record Size : 0, File Name : NA. Kafka Flagfalse",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Sep 26, 2024, 12:13:11 PM",
+    "Activity_EndTime": "Sep 26, 2024, 12:13:11 PM"
+  },
+  {
+    "Activity_No": 26,
+    "Activity_Name": "Loading COMM Ledger from BO",
+    "Remarks": "Record Size : 134017",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 1, 2025, 9:05:31 AM",
+    "Activity_EndTime": "Aug 1, 2025, 9:05:31 AM"
+  },
+  {
+    "Activity_No": 27,
+    "Activity_Name": "Loading COMM Ledger from LC DB",
+    "Remarks": "Record Size : 3, File Name : NA",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 1, 2025, 9:05:37 AM",
+    "Activity_EndTime": "Aug 1, 2025, 9:05:37 AM"
+  },
+  {
+    "Activity_No": 28,
+    "Activity_Name": "Upload CO CCO2 file",
+    "Remarks": "Record Size : 13851, File Name : MCX_WebAllocationDeallocation56125_20250801.csv",
+    "Activity_Status": "SUCCESS",
+    "Activity_StartTime": "Aug 1, 2025, 9:05:42 AM",
+    "Activity_EndTime": "Aug 1, 2025, 9:05:43 AM"
+  }
+]
