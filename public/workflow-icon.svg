@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <rect width="32" height="32" rx="8" fill="url(#gradient)"/>
+  
+  <!-- Workflow logo - exact same as used in login screen, scaled from 24x24 to 32x32 -->
+  <path d="M16 2.67L2.67 9.33l13.33 6.67 13.33-6.67-13.33-6.66zM2.67 22.67l13.33 6.67 13.33-6.67M2.67 16l13.33 6.67 13.33-6.67" fill="white"/>
+  
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg> 
