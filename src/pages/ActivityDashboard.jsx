@@ -32,50 +32,58 @@ const ActivityDashboard = () => {
     reader.readAsText(file);
   };
 
-  const fetchData = async () => {
-    if (!apiUrl.trim()) {
-      setError('Please provide an API URL');
-      return;
+const fetchData = async () => {
+  if (!apiUrl.trim()) {
+    setError('Please provide an API URL');
+    return;
+  }
+
+  setLoading(true);
+  setError(null);
+
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      mode: 'cors',
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
 
-    setLoading(true);
-    setError(null);
+    const jsonData = await response.json();
 
-    try {
-      const response = await fetch(apiUrl, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        mode: 'cors', // explicitly set CORS mode
-      });
+    // Normalize response to array
+    const rawData = Array.isArray(jsonData) ? jsonData : [jsonData];
 
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-      }
-      const jsonData = await response.json();
+    // Replace 'NA' with 'FAILED' in Activity_Status
+    const processedData = rawData.map(item => ({
+      ...item,
+      Activity_Status: item.Activity_Status === 'NA' ? 'FAILED' : item.Activity_Status
+    }));
 
-      // Handle both single object and array responses
-      const processedData = Array.isArray(jsonData) ? jsonData : [jsonData];
-      setData(processedData);
-      setLastUpdated(new Date());
-    } catch (err) {
-      let errorMessage = err.message;
+    setData(processedData);
+    setLastUpdated(new Date());
+  } catch (err) {
+    let errorMessage = err.message;
 
-      if (err.name === 'TypeError' && err.message.includes('Failed to fetch')) {
-        errorMessage = 'Network Error: Cannot reach the API. This could be due to:\n• CORS restrictions\n• Network connectivity issues\n• API server is down\n• Incorrect URL';
-      }
-
-      setError(errorMessage);
-      console.error('Error fetching data:', err);
-
-      // Set empty data (0 values) when API fails
-      setData([]);
-    } finally {
-      setLoading(false);
+    if (err.name === 'TypeError' && err.message.includes('Failed to fetch')) {
+      errorMessage = 'Network Error: Cannot reach the API. This could be due to:\n• CORS restrictions\n• Network connectivity issues\n• API server is down\n• Incorrect URL';
     }
-  };
+
+    setError(errorMessage);
+    console.error('Error fetching data:', err);
+
+    // Set empty data (0 values) when API fails
+    setData([]);
+  } finally {
+    setLoading(false);
+  }
+};
 
   const testApiDirectly = async () => {
     const testUrl = apiUrl.startsWith('http') ? apiUrl : `https://${apiUrl}`;
@@ -360,7 +368,7 @@ const getActivityTypeCounts = () => {
                 cy="50%"
                 labelLine={false}
                 label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                outerRadius={80}
+                outerRadius={100}
                 fill="#8884d8"
                 dataKey="value"
               >
@@ -435,8 +443,8 @@ const getActivityTypeCounts = () => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center gap-2">
-                      {getStatusIcon(activity.Activity_Status == 'NA' ? 'FAILED' : activity.Activity_Status)}
-                      <span className="text-sm text-gray-900">{activity.Activity_Status == 'NA' ? 'FAILED' : activity.Activity_Status}</span>
+                      {getStatusIcon(activity.Activity_Status)}
+                      <span className="text-sm text-gray-900">{activity.Activity_Status}</span>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
