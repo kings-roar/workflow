@@ -127,34 +127,33 @@ const ActivityDashboard = () => {
     value: count
   }));
 
-  // Activity type counters - calculated from actual data only
-  const getActivityTypeCounts = () => {
-    const loadingCount = processedData.filter(item =>
-      item.Activity_Name.toLowerCase().includes('loading') ||
-      item.Activity_Name.toLowerCase().includes('load')
-    ).length;
 
-    const uploadCount = processedData.filter(item =>
-      item.Activity_Name.toLowerCase().includes('upload') ||
-      item.Activity_Name.toLowerCase().includes('backup') ||
-      item.Activity_Name.toLowerCase().includes('export')
-    ).length;
+const DB_OPERATION = [1, 2, 3];
+const UPLOAD_OPERATION = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,26, 27, 28];
+const KAFKA = [23, 24, 25];
 
-    const kafkaCount = processedData.filter(item =>
-      item.Activity_Name.toLowerCase().includes('kafka') ||
-      item.Activity_Name.toLowerCase().includes('kafak') ||
-      item.Activity_Name.toLowerCase().includes('stream') ||
-      item.Activity_Name.toLowerCase().includes('queue')
-    ).length;
+// Activity type counters - calculated from actual data only
+const getActivityTypeCounts = () => {
+  const loadingCount = processedData.filter(item =>
+    DB_OPERATION.includes(item.Activity_No)
+  ).length;
 
-    // Return actual counts only - no fallback values
-    return {
-      total: processedData.length,
-      loading: loadingCount,
-      upload: uploadCount,
-      kafka: kafkaCount
-    };
+  const uploadCount = processedData.filter(item =>
+    UPLOAD_OPERATION.includes(item.Activity_No)
+  ).length;
+
+  const kafkaCount = processedData.filter(item =>
+    KAFKA.includes(item.Activity_No)
+  ).length;
+
+  // Return actual counts only - no fallback values
+  return {
+    total: processedData.length,
+    loading: loadingCount,
+    upload: uploadCount,
+    kafka: kafkaCount
   };
+};
 
   const activityTypeCounts = getActivityTypeCounts();
 
@@ -277,7 +276,7 @@ const ActivityDashboard = () => {
         <div className="bg-white rounded-lg shadow-sm p-6 border-l-4 border-green-500">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-600">Loading Operations</p>
+              <p className="text-sm font-medium text-gray-600">DB Operations</p>
               <p className="text-3xl font-bold text-green-600">{activityTypeCounts.loading}</p>
             </div>
             <Database className="w-10 h-10 text-green-600" />
@@ -436,8 +435,8 @@ const ActivityDashboard = () => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center gap-2">
-                      {getStatusIcon(activity.Activity_Status)}
-                      <span className="text-sm text-gray-900">{activity.Activity_Status}</span>
+                      {getStatusIcon(activity.Activity_Status == 'NA' ? 'FAILED' : activity.Activity_Status)}
+                      <span className="text-sm text-gray-900">{activity.Activity_Status == 'NA' ? 'FAILED' : activity.Activity_Status}</span>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
