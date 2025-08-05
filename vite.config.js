@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       "/skliquiditycalc": {
-        target: "https://dftuat.sharekhan.com", // Backend server URL
+        target: "https://dftuatweb.sharekhan.com", // Backend server URL
         changeOrigin: true,
         
       },
