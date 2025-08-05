@@ -58,7 +58,7 @@ const TopBar = () => {
                         </svg>
                     </div>
                     <div className="flex flex-col">
-                        <h1 className="text-sm sm:text-lg font-bold text-gray-900">Workflow</h1>
+                        <h1 className="text-sm sm:text-lg font-bold text-gray-900">Autoflow</h1>
                         <p className="text-xs text-gray-500 hidden sm:block">Automation Platform</p>
                     </div>
                 </div>

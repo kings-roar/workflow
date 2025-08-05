@@ -68,7 +68,7 @@ const Login = () => {
                         Welcome Back
                     </h2>
                     <p className="text-gray-600 animate-fade-in-up-delay">
-                        Sign in to your Workflow account
+                        Sign in to your Autoflow account
                     </p>
                 </div>
 
