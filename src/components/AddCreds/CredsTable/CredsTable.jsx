@@ -23,7 +23,7 @@ const CredsTable = ({ data, handleToggle, onSearch }) => {
             onClick={handleToggle}
           >
             <FaPlus className="text-sm" />
-            Add New Creds
+            Add New Connector
           </button>
         </div>
       </div>
@@ -33,9 +33,9 @@ const CredsTable = ({ data, handleToggle, onSearch }) => {
         <table className="w-full">
           <thead>
             <tr className="bg-gradient-to-r from-gray-50 to-gray-100">
-              <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Cred Name</th>
-              <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Cred Type</th>
-              <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Cred Purpose</th>
+              <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Connector Name</th>
+              <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Connector Type</th>
+              <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Connector Purpose</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Api Url</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Api Username</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Api Password</th>

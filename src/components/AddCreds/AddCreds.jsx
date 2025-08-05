@@ -58,8 +58,8 @@ const AddCreds = ({ showSideBar, handleClose, handleToggle, onCredCreated }) => 
                 <FaKey className="text-lg" />
               </div>
               <div>
-                <h2 className="text-xl font-semibold">Add New Credentials & Destination</h2>
-                <p className="text-blue-100 text-sm">Configure your API credentials and destination settings</p>
+                <h2 className="text-xl font-semibold">Add New Connector</h2>
+                <p className="text-blue-100 text-sm">Configure your API connector settings</p>
               </div>
             </div>
             <button

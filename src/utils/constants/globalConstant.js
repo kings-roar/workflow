@@ -71,13 +71,13 @@ export const sourceDestConfig = [
 
 export const getCredentialFormConfig = (credType = "api") => {
     const baseFields = [
-        { label: "Credential Name", name: "cred_name", type: "text", placeholder: "Enter credential name", validation: { required: true } },
+        { label: "Connector Name", name: "cred_name", type: "text", placeholder: "Enter connector name", validation: { required: true } },
         {
-            label: "Credential Type", name: "cred_type", type: "dropdown", options: [{ value: "api", label: "api" }], defaultValue: credType, validation: { required: true }
+            label: "Connector Type", name: "cred_type", type: "dropdown", options: [{ value: "api", label: "api" }], defaultValue: credType, validation: { required: true }
         },
-        { label: "Credential Purpose", name: "cred_purpose", type: "dropdown", options: [{ value: "source", label: "source" }, { value: "destination", label: "destination" }], validation: { required: true } },
+        { label: "Connector Purpose", name: "cred_purpose", type: "dropdown", options: [{ value: "source", label: "source" }, { value: "destination", label: "destination" }], validation: { required: true } },
     ];
-
+    
     // const dbFields = [
     //     { label: "DB Type", name: "db_type", type: "text", placeholder: "Enter DB type", validation: { required: true } },
     //     { label: "IP Address", name: "ip", type: "text", placeholder: "Enter IP", validation: { required: true } },

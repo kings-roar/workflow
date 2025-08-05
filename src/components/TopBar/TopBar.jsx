@@ -93,7 +93,7 @@ const TopBar = () => {
                             }
                         >
                             <HiOutlineKey className="text-lg xl:text-xl" />
-                            <span className="text-sm font-medium">Credentials</span>
+                            <span className="text-sm font-medium">Connectors</span>
                         </NavLink>
                     )}
 
@@ -188,7 +188,7 @@ const TopBar = () => {
                                 }
                             >
                                 <HiOutlineKey className="text-xl" />
-                                <span className="text-sm font-medium">Credentials</span>
+                                <span className="text-sm font-medium">Connectors</span>
                             </NavLink>
                         )}
 
