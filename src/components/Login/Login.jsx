@@ -155,12 +155,6 @@ const Login = () => {
                     </form>
                 </div>
 
-                {/* Footer */}
-                <div className="text-center">
-                    <p className="text-sm text-gray-500">
-                        Workflow Automation Platform
-                    </p>
-                </div>
             </div>
         </div>
     );
