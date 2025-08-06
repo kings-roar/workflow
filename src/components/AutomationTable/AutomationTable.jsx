@@ -41,7 +41,7 @@ const AutomationTable = ({ data, handleToggle, onSearch }) => {
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Schedule Type</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Created At</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Modified At</th>
-              <th className="px-6 py-4 text-right text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Action</th>
+              {/* <th className="px-6 py-4 text-right text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Action</th> */}
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-100">
@@ -91,7 +91,7 @@ const AutomationTable = ({ data, handleToggle, onSearch }) => {
                       })}
                     </div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-right">
+                  {/* <td className="px-6 py-4 whitespace-nowrap text-right">
                     <div className="flex justify-end items-center space-x-2">
                       <button
                         title="Delete"
@@ -100,7 +100,7 @@ const AutomationTable = ({ data, handleToggle, onSearch }) => {
                         <FaTrash className="text-sm group-hover/btn:scale-110 transition-transform duration-200" />
                       </button>
                     </div>
-                  </td>
+                  </td> */}
                 </tr>
               ))
             ) : (

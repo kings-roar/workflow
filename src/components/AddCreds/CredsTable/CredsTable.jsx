@@ -41,7 +41,7 @@ const CredsTable = ({ data, handleToggle, onSearch }) => {
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Api Password</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Created At</th>
               <th className="px-6 py-4 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Modified At</th>
-              <th className="px-6 py-4 text-right text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Action</th>
+              {/* <th className="px-6 py-4 text-right text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">Action</th> */}
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-100">
@@ -98,14 +98,14 @@ const CredsTable = ({ data, handleToggle, onSearch }) => {
                       })}
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-center">
+                    {/* <td className="px-6 py-4 whitespace-nowrap text-center">
                       <div className="flex justify-end items-center gap-2">
-                        {/* <button
+                        <button
                           title="View"
                           className="p-2 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all duration-200 group/btn"
                         >
                           <FaEye className="text-sm group-hover/btn:scale-110 transition-transform duration-200" />
-                        </button> */}
+                        </button>
                         <button
                           title="Delete"
                           className="p-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all duration-200 group/btn"
@@ -113,7 +113,7 @@ const CredsTable = ({ data, handleToggle, onSearch }) => {
                           <FaTrash className="text-sm group-hover/btn:scale-110 transition-transform duration-200" />
                         </button>
                       </div>
-                    </td>
+                    </td> */}
                   </tr>
                 ))
             ) : (
